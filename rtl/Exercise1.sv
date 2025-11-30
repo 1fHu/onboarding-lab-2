@@ -10,7 +10,18 @@ module Exercise1 (
     input  [1:0] op,
     input  [7:0] a,
     input  [7:0] b,
-    output [7:0] out
+    output [7:0] out // logic
 );
+
+    always @(*) begin
+      case(op)
+        2'b00: out = a + b;          // Addition
+        2'b01: out = a - b;          // Subtraction
+        2'b10: out = a & b;          // Bitwise AND
+        2'b11: out = a | b;          // Bitwise OR
+        default: out = 8'b0;         // Default case
+      endcase
+    end
+
 
 endmodule
