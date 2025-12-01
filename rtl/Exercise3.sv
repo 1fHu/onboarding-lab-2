@@ -7,4 +7,32 @@ module Exercise3 (
     output [15:0] out
 );
 
+  logic [7:0] a_in;
+  logic [7:0] b_in;
+
+  // Alpha - Mystery1 instance
+  Mystery1 alpha (
+      .a(a[1:0]),
+      .b(b[7:0]),
+      .c(c[7:0]),
+      .d(a_in)
+  );
+
+  // Beta - Mystery1 instance
+  Mystery1 beta (
+      .a(a[3:2]),
+      .b(b[15:8]),
+      .c(c[15:8]),
+      .d(b_in)
+  );
+
+  // Gamma - Mystery2 instance
+  Mystery2 gamma (
+      .clk(clk),
+      .nReset(nReset),
+      .a_in(a_in),
+      .b_in(b_in),
+      .out(out)
+  );
+
 endmodule
