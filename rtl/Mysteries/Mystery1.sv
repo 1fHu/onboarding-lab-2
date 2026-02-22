@@ -13,7 +13,7 @@ module Mystery1 (
     input [7:0] c,
     output logic [7:0] d
 );
-  always_comb
+  always_comb begin
     case (a)
       0: d = b;
       1: begin
@@ -27,4 +27,5 @@ module Mystery1 (
         d[2:0] = b[2:0];
       end
     endcase
+  end
 endmodule

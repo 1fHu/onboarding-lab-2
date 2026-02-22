@@ -14,11 +14,12 @@ module Exercise2 (
 );
 
   always@(posedge clk or negedge nReset) begin
-    if (~reset)
+    if (~nReset)
       out <= init;
-    else
-      wire feedback = out[15] ^ out[13] ^ out[12] ^ out[10];
+    else begin
+      logic feedback = out[15] ^ out[13] ^ out[12] ^ out[10];
       out <= {out[14:0], feedback};
+    end
   end
   
 endmodule
